@@ -37,5 +37,17 @@ public class Ejecutor2 {
                 estDistancia.obtenerMatriculaDistancia());
         
         System.out.println(cadenaFinal);
+        System.out.println("-------------------------------------------------");
+        estDistancia.establecerApellidoEstudiante("Elizalde Lozano");
+        String cadena2Final = String.format("%s", estDistancia);
+        cadena2Final = String.format("%s\n"
+                + "Costo Asignatura: %.2f\n"
+                + "Número de Asignaturas: %d\n"
+                + "Total Matricula: %.2f\n",
+                cadena2Final,
+                estDistancia.obtenerCostoAsignatura(),
+                estDistancia.obtenerNumeroAsignaturas(),
+                estDistancia.obtenerMatriculaDistancia());
+        System.out.println(cadena2Final);
     }
 }
