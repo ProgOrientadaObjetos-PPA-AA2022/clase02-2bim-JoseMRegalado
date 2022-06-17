@@ -11,46 +11,67 @@ import java.util.ArrayList;
  *
  * @author reroes
  */
-public class ReporteDistancia extends Reporte{
-    
+public class ReporteDistancia extends Reporte {
+
     private ArrayList<EstudianteDistancia> lista;
     private double totalMatriculaDistancia;
-    
-    public ReporteDistancia(String nombre, String carrera, String ciclo){
+
+    public ReporteDistancia(String nombre, String carrera, String ciclo) {
         super(nombre, carrera, ciclo);
-        
+
     }
-    
-    public void establecerLista(ArrayList<EstudianteDistancia> listado){
+
+    public void establecerLista(ArrayList<EstudianteDistancia> listado) {
         lista = listado;
     }
-    
-    public void establecerTotalMatriculasDistancia(){
-        
+
+    public void establecerTotalMatriculasDistancia() {
+
         for (int i = 0; i < lista.size(); i++) {
-            totalMatriculaDistancia = totalMatriculaDistancia + 
-                    lista.get(i).obtenerMatriculaDistancia();
+            totalMatriculaDistancia = totalMatriculaDistancia
+                    + lista.get(i).obtenerMatriculaDistancia();
         }
     }
-    
-    public ArrayList<EstudianteDistancia> obtenerLista(){
+
+    public ArrayList<EstudianteDistancia> obtenerLista() {
         return lista;
     }
-    
-    public double obtenerTotalMatriculasDistancia(){
+
+    public double obtenerTotalMatriculasDistancia() {
         return totalMatriculaDistancia;
     }
-    
+
     @Override
-    public String toString(){
-        
+    public String toString() {
+
         String cadena = String.format("Carrera: %s \n"
-                + "Ciclo: %s\n"
-                + "El total de matriculas es: %.2f\n", 
+                + "Ciclo: %s\n",
                 carrera,
-                ciclo,
+                ciclo);
+        for (int i = 0; i < lista.size(); i++) {
+            cadena = String.format("%s\n"
+                    + "Estudiante (%d)\n"
+                    + "Nombre: %s\n"
+                    + "Apellido: %s\n"
+                    + "Identificación: %s\n"
+                    + "Edad: %s\n"
+                    + "Costo Asignatura: %.2f\n"
+                    + "Número de Asignaturas: %d\n"
+                    + "Total Matricula: %.2f\n",
+                    cadena, (i + 1),
+                    lista.get(i).obtenerNombresEstudiante(),
+                    lista.get(i).obtenerApellidoEstudiante(),
+                    lista.get(i).obtenerIdentificacionEstudiante(),
+                    lista.get(i).obtenerEdadEstudiante(),
+                    lista.get(i).obtenerCostoAsignatura(),
+                    lista.get(i).obtenerNumeroAsignaturas(),
+                    lista.get(i).obtenerMatriculaDistancia());
+
+        }
+        cadena = String.format("%s"
+                + "El total de matriculas es: %.2f\n", cadena,
                 obtenerTotalMatriculasDistancia());
         return cadena;
     }
-    
+
 }
