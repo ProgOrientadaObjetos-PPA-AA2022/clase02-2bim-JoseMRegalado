@@ -69,7 +69,7 @@ public class ReporteDistancia extends Reporte {
 
         }
         cadena = String.format("%s"
-                + "El total de matriculas es: %.2f\n", cadena,
+                + "\nEl total de matriculas es: %.2f\n", cadena,
                 obtenerTotalMatriculasDistancia());
         return cadena;
     }
